@@ -85,6 +85,21 @@ class ReverseSortedList {
         }
     }
 
+    void pop_front() {
+        if (head == nullptr) {
+            return;
+        } else {
+            if (size == 1) {
+                head = nullptr;
+                tail = nullptr;
+            } else {
+                head = head->next;
+                head->prev = nullptr;
+            }
+            size--;
+        }
+    }
+
     std::uint32_t get_size() const { return size; }
 
     Node* get_head() const { return head; }
