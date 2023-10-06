@@ -81,22 +81,28 @@ class ReverseSortedList {
                 }
             }
             size--;
+            cur->next = nullptr;
+            cur->prev = nullptr;
             return cur;
         }
     }
 
-    void pop_front() {
+    Node* pop_front() {
         if (head == nullptr) {
-            return;
+            return nullptr;
         } else {
+            Node* cur = head;
             if (size == 1) {
                 head = nullptr;
                 tail = nullptr;
             } else {
-                head = head->next;
+                head = cur->next;
                 head->prev = nullptr;
             }
             size--;
+            cur->next = nullptr;
+            cur->prev = nullptr;
+            return cur;
         }
     }
 
